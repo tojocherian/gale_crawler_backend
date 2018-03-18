@@ -29,7 +29,7 @@ def is_valid_url(url):
 @require_http_methods(['POST','GET'])  # limiting only get and post
 def crawl(request):
     # New crawl request will be a POST request
-    if request.method = 'POST':
+    if request.method == 'POST':
         url = request.POST.get('url',None) # url to be crawled
         if not url:
             return JsonResponse({'error':'Missing args'})
@@ -54,7 +54,7 @@ def crawl(request):
         return JsonResponse({'task_id':task, 'unique_id':unique_id, 'status':'started'})
 
     # results can be fetched from the client side with a GET request
-    elif request.method = 'GET':
+    elif request.method == 'GET':
         # checking if crawling is completed and fetching data
         task_id = request.GET.get('task_id', None)
         unique_id = request.GET.get('unique_id', None)

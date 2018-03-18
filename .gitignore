@@ -18,3 +18,6 @@ tests/.coverage
 build/
 tests/report/
 db.sqlite3
+scrapy_app/dbs/
+scrapy_app/logs/
+scrapy_app/twistd.pid
