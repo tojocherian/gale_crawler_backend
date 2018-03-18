@@ -10,7 +10,6 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from scrapyd_api import ScrapydAPI
-# from main.utils import URLUtil
 from main.models import ScrapyUnit
 
 
@@ -49,7 +48,7 @@ def crawl(request):
 
         # scheduling the new crawling task for scrapyd
         # ID returned from scheduler can be used to check task's status
-        task = scrapyd.schedule('default','icrawler',
+        task = scrapyd.schedule('default','galecrawler',
                                 settings=settings, url=url, domain=domain)
         
         return JsonResponse({'task_id':task, 'unique_id':unique_id, 'status':'started'})
